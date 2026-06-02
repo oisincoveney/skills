@@ -29,8 +29,36 @@ skills/library-first-development
 
 skills/high-signal-research
   Original work.
+
+skills/planning
+  Original work. Orchestrates the four skills below plus high-signal-research
+  and root-cause-fixes; wires to Backlog.md (https://backlog.md) and the local
+  oisin-pipeline (`pipe`) when available.
+
+skills/tdd
+  Adapted from mattpocock/skills — skill `tdd`.
+  https://github.com/mattpocock/skills
+  MIT License, Copyright (c) 2026 Matt Pocock.
+
+skills/diagnose
+  Adapted from mattpocock/skills — skill `diagnose`.
+  https://github.com/mattpocock/skills
+  MIT License, Copyright (c) 2026 Matt Pocock.
+
+skills/grill-plans
+  Adapted from mattpocock/skills — skill `grill-with-docs`.
+  https://github.com/mattpocock/skills
+  MIT License, Copyright (c) 2026 Matt Pocock.
+
+skills/improve-architecture
+  Adapted from mattpocock/skills — skill `improve-codebase-architecture`.
+  The deep-vs-shallow-module framing traces to John Ousterhout,
+  "A Philosophy of Software Design".
+  https://github.com/mattpocock/skills
+  MIT License, Copyright (c) 2026 Matt Pocock.
 ------------------------------------------------------------------------------
 
 Full upstream license texts:
   - MIT: https://github.com/obra/superpowers/blob/main/LICENSE
+  - MIT (mattpocock): https://github.com/mattpocock/skills/blob/main/LICENSE
   - Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
