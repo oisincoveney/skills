@@ -12,7 +12,7 @@ This is not "add dependencies carelessly." It's "don't reinvent the wheel, *and*
 ## The workflow
 
 1. **Name the capability** in one sentence ("parse and diff ISO-8601 durations", "rate-limit outbound calls with backoff"). If a mature library category exists for it, you're in scope.
-2. **Find real candidates** — use [[high-signal-research]]. Get actual maintained options from primary sources (registries, GitHub, the ecosystem's "awesome" lists), not a half-remembered name.
+2. **Find real candidates** — use [[research]]. Get actual maintained options from primary sources (registries, GitHub, the ecosystem's "awesome" lists), not a half-remembered name.
 3. **Vet before adopting** (below). A popular library that's abandoned or risky is not the answer.
 4. **Adopt the best fit, or hand-roll with a written reason** (below).
 
@@ -66,4 +66,4 @@ This is about *choosing* to use a library well. For deep supply-chain hardening 
 
 ---
 
-*Original skill for Oisín's skills repo. Vetting criteria (ecosyste.ms / OpenSSF Scorecard / risk thresholds / slopsquat checks) drawn from [andrew/managing-dependencies](https://github.com/andrew/managing-dependencies) by Andrew Nesbitt (CC0-1.0), with the default lean flipped from minimalist to library-first. Pairs with [[high-signal-research]].*
+*Original skill for Oisín's skills repo. Vetting criteria (ecosyste.ms / OpenSSF Scorecard / risk thresholds / slopsquat checks) drawn from [andrew/managing-dependencies](https://github.com/andrew/managing-dependencies) by Andrew Nesbitt (CC0-1.0), with the default lean flipped from minimalist to library-first. Pairs with [[research]].*

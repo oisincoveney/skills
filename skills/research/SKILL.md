@@ -1,5 +1,5 @@
 ---
-name: high-signal-research
+name: research
 description: Use whenever researching a technical question — a library, tool, API, error, version, or "what's the best way to X" — or whenever you're about to answer from memory. Forces multiple real searches over primary sources (official docs, source code, high-vote Stack Overflow, maintainer blogs) instead of one search plus training-data filler, and rejects SEO content-farm slop. Trigger on "research X", "look into", "what's the best library for", "how does X work", "is this still true", "find out".
 ---
 
@@ -52,4 +52,4 @@ Choosing a library/tool from this research? Hand the candidates to [[library-fir
 
 ---
 
-*Original skill for Oisín's skills repo. Pairs with [[library-first-development]]; the same "verify, don't assume" discipline as [[root-cause-fixes]].*
+*Original skill for Oisín's skills repo. Pairs with [[library-first-development]]; the same "verify, don't assume" discipline as [[fix]].*

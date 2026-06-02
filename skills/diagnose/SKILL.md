@@ -5,7 +5,7 @@ description: Use for hard bugs and performance regressions — when the bug is i
 
 # Diagnose
 
-A discipline for the bugs that don't yield to a quick read. [[systematic-debugging]] is the stance — don't guess, find the root cause, trace the bad value back to its origin. This skill is what you run when the *reproduce-it* step is itself the hard part: the bug is intermittent, environment-specific, or slow to surface. Skip a phase only when you can say out loud why.
+A discipline for the bugs that don't yield to a quick read. [[debug]] is the stance — don't guess, find the root cause, trace the bad value back to its origin. This skill is what you run when the *reproduce-it* step is itself the hard part: the bug is intermittent, environment-specific, or slow to surface. Skip a phase only when you can say out loud why.
 
 ## Phase 1 — Build a feedback loop
 
@@ -43,7 +43,7 @@ Each probe maps to one prediction. **Change one variable at a time.** Prefer a d
 
 ## Phase 5 — Fix + regression test
 
-Write the regression test **before** the fix — *if there is a correct seam* for it, one where the test exercises the real bug pattern as it occurs at the call site. A too-shallow seam (a single-caller unit test for a bug that needs multiple callers) gives false confidence; if no correct seam exists, **that is the finding** — note it, the architecture is preventing the bug from being locked down, and hand it to [[improve-architecture]]. If a seam exists: turn the minimised repro into a failing test, watch it fail, apply the fix per [[root-cause-fixes]], watch it pass, then re-run the Phase 1 loop against the *original* scenario. (This is [[tdd]]'s reproduce-before-you-fix, applied to a hard bug.)
+Write the regression test **before** the fix — *if there is a correct seam* for it, one where the test exercises the real bug pattern as it occurs at the call site. A too-shallow seam (a single-caller unit test for a bug that needs multiple callers) gives false confidence; if no correct seam exists, **that is the finding** — note it, the architecture is preventing the bug from being locked down, and hand it to [[improve]]. If a seam exists: turn the minimised repro into a failing test, watch it fail, apply the fix per [[fix]], watch it pass, then re-run the Phase 1 loop against the *original* scenario. (This is [[test]]'s reproduce-before-you-fix, applied to a hard bug.)
 
 ## Phase 6 — Cleanup + post-mortem
 
@@ -53,7 +53,7 @@ Write the regression test **before** the fix — *if there is a correct seam* fo
 - [ ] Throwaway prototypes deleted or clearly quarantined.
 - [ ] The hypothesis that proved correct is written into the commit / PR message — the next debugger inherits it.
 
-Then ask: **what would have prevented this?** If the answer is architectural — no good seam, tangled callers, hidden coupling — hand off to [[improve-architecture]] with specifics, *after* the fix is in, when you know the most.
+Then ask: **what would have prevented this?** If the answer is architectural — no good seam, tangled callers, hidden coupling — hand off to [[improve]] with specifics, *after* the fix is in, when you know the most.
 
 ## The short version
 
@@ -61,4 +61,4 @@ Build a fast deterministic feedback loop — that's 90% of it. Reproduce the *re
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `diagnose` (MIT, © 2026 Matt Pocock). The heavyweight loop behind [[systematic-debugging]]; fixes land via [[root-cause-fixes]], regression tests via [[tdd]], and unfixable-because-untestable findings escalate to [[improve-architecture]].*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `diagnose` (MIT, © 2026 Matt Pocock). The heavyweight loop behind [[debug]]; fixes land via [[fix]], regression tests via [[test]], and unfixable-because-untestable findings escalate to [[improve]].*

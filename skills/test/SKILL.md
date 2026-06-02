@@ -1,5 +1,5 @@
 ---
-name: tdd
+name: test
 description: Use when implementing any non-trivial feature, behaviour, or bug fix — write the failing test first, in vertical tracer-bullet slices, one test → one implementation at a time. Tests verify behaviour through public interfaces, never implementation details. Trigger on "build X", "implement X", "fix this bug", "add a feature", "red-green-refactor", "write tests", and any behaviour change that isn't config/docs/rename.
 ---
 
@@ -26,14 +26,14 @@ Go vertical. Each cycle teaches you what the next test should be.
 
 ## The loop
 
-1. **Plan the behaviours.** Decide the public interface and *which behaviours matter most* — you can't test everything, so test the critical paths and the complex logic, not every trivial getter. (In a larger effort this list comes out of [[planning]].)
+1. **Plan the behaviours.** Decide the public interface and *which behaviours matter most* — you can't test everything, so test the critical paths and the complex logic, not every trivial getter. (In a larger effort this list comes out of [[plan]].)
 2. **Tracer bullet.** Write ONE test for ONE behaviour. Watch it fail (RED) — if it passes immediately, it isn't testing what you think. Write the minimum code to pass (GREEN).
 3. **Incremental loop.** For each remaining behaviour: one test → watch it fail → minimum code to pass. One at a time. Don't write code for a test you haven't written yet.
-4. **Refactor — but only on GREEN.** With the suite passing, remove duplication and deepen modules (push complexity behind simple interfaces — see [[improve-architecture]]). Run the tests after each step. **Never refactor while RED** — get to green first, then clean.
+4. **Refactor — but only on GREEN.** With the suite passing, remove duplication and deepen modules (push complexity behind simple interfaces — see [[improve]]). Run the tests after each step. **Never refactor while RED** — get to green first, then clean.
 
 ## Bug fixes: reproduce before you fix
 
-A bug fix *starts* with a failing test, not a fix. Write a test that reproduces the bug and watch it fail — that's your proof the bug is real and that you're aiming at the right thing. Then fix it and watch the test go green. This is the same red→green evidence [[root-cause-fixes]] demands, and it's how [[diagnose]] turns a minimised repro into a permanent regression guard. If there's no honest seam to write that test at, that absence is itself a finding — say so, don't fake a shallow test that passes for the wrong reason.
+A bug fix *starts* with a failing test, not a fix. Write a test that reproduces the bug and watch it fail — that's your proof the bug is real and that you're aiming at the right thing. Then fix it and watch the test go green. This is the same red→green evidence [[fix]] demands, and it's how [[diagnose]] turns a minimised repro into a permanent regression guard. If there's no honest seam to write that test at, that absence is itself a finding — say so, don't fake a shallow test that passes for the wrong reason.
 
 ## Per-cycle checklist
 
@@ -57,4 +57,4 @@ One behaviour at a time: red → green → refactor, vertically. Test through th
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `tdd` (MIT, © 2026 Matt Pocock). Pairs with [[planning]] (which behaviours to test), [[root-cause-fixes]] and [[diagnose]] (reproduction-test-first), and [[improve-architecture]] (the refactor step).*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `tdd` (MIT, © 2026 Matt Pocock). Pairs with [[plan]] (which behaviours to test), [[fix]] and [[diagnose]] (reproduction-test-first), and [[improve]] (the refactor step).*

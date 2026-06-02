@@ -2,13 +2,13 @@ This repository contains original work plus skills adapted from third-party
 open-source projects. Attribution and upstream licenses below.
 
 ------------------------------------------------------------------------------
-skills/systematic-debugging
+skills/debug
   Adapted from obra/superpowers — skills `systematic-debugging` and
   `root-cause-tracing`.
   https://github.com/obra/superpowers
   MIT License, Copyright (c) 2025 Jesse Vincent.
 
-skills/root-cause-fixes
+skills/fix
   Anti-bandaid framing adapted from gridaco/grida — skill `etiology`
   (the "acceptable bandaid" carve-out was deliberately removed).
   https://github.com/gridaco/grida
@@ -27,15 +27,15 @@ skills/library-first-development
   https://github.com/andrew/managing-dependencies
   CC0-1.0 (public domain dedication; attribution is courtesy, not required).
 
-skills/high-signal-research
+skills/research
   Original work.
 
-skills/planning
-  Original work. Orchestrates the four skills below plus high-signal-research
-  and root-cause-fixes; wires to Backlog.md (https://backlog.md) and the local
+skills/plan
+  Original work. Orchestrates the four skills below plus research
+  and fix; wires to Backlog.md (https://backlog.md) and the local
   oisin-pipeline (`pipe`) when available.
 
-skills/tdd
+skills/test
   Adapted from mattpocock/skills — skill `tdd`.
   https://github.com/mattpocock/skills
   MIT License, Copyright (c) 2026 Matt Pocock.
@@ -45,12 +45,12 @@ skills/diagnose
   https://github.com/mattpocock/skills
   MIT License, Copyright (c) 2026 Matt Pocock.
 
-skills/grill-plans
+skills/grill
   Adapted from mattpocock/skills — skill `grill-with-docs`.
   https://github.com/mattpocock/skills
   MIT License, Copyright (c) 2026 Matt Pocock.
 
-skills/improve-architecture
+skills/improve
   Adapted from mattpocock/skills — skill `improve-codebase-architecture`.
   The deep-vs-shallow-module framing traces to John Ousterhout,
   "A Philosophy of Software Design".

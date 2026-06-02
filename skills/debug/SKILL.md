@@ -1,5 +1,5 @@
 ---
-name: systematic-debugging
+name: debug
 description: Use when investigating ANY bug, test failure, crash, hang, flaky test, or unexpected/"weird" behaviour — BEFORE proposing or writing a fix. Forces finding the real root cause instead of guessing, patching the first thing you see, or fixing the symptom. Trigger on "why is this broken", "this is acting weird", "debug this", "the test fails", "it works sometimes".
 ---
 
@@ -11,7 +11,7 @@ Guessing wastes time and ships new bugs. The first explanation that comes to min
 
 **No fix until you have found the root cause. Finding the cause is a separate step from fixing it, and it comes first.**
 
-If you have not finished Phase 1, you do not get to propose a fix. Not "probably", not "let me just try", not "this should do it". Find the cause, then go to [[root-cause-fixes]] to fix it properly.
+If you have not finished Phase 1, you do not get to propose a fix. Not "probably", not "let me just try", not "this should do it". Find the cause, then go to [[fix]] to fix it properly.
 
 Run this even when — *especially* when — the bug looks trivial, you are in a hurry, or someone wants it fixed now. Simple bugs have root causes too, and systematic is faster than thrashing through five guesses.
 
@@ -47,7 +47,7 @@ State it out loud: "I think X is the root cause because Y." Then test it with th
 
 ## Phase 4 — Hand off to the fix
 
-Once the cause is confirmed, the fix itself is governed by [[root-cause-fixes]]: a minimal fix at the source, a test that reproduces the bug, and proof the symptom is actually gone. One change — no "while I'm here" refactoring bundled in.
+Once the cause is confirmed, the fix itself is governed by [[fix]]: a minimal fix at the source, a test that reproduces the bug, and proof the symptom is actually gone. One change — no "while I'm here" refactoring bundled in.
 
 ## Stop if you catch yourself thinking…
 
@@ -62,4 +62,4 @@ If three fixes have failed, or each fix spawns a new problem somewhere else, sto
 
 ---
 
-*Adapted from [obra/superpowers](https://github.com/obra/superpowers) `systematic-debugging` and `root-cause-tracing` (MIT, © 2025 Jesse Vincent), rewritten and condensed. Pairs with [[root-cause-fixes]] and [[high-signal-research]].*
+*Adapted from [obra/superpowers](https://github.com/obra/superpowers) `systematic-debugging` and `root-cause-tracing` (MIT, © 2025 Jesse Vincent), rewritten and condensed. Pairs with [[fix]] and [[research]].*

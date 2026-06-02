@@ -1,5 +1,5 @@
 ---
-name: improve-architecture
+name: improve
 description: Use when code is hard to navigate, change, or test — to find and propose "deepening" refactors that turn shallow modules into deep ones behind clean seams. Use when planning where a new feature's boundaries should live, when diagnose finds no good test seam, or when understanding one concept forces you to bounce across many files. Trigger on "improve the architecture", "this is hard to change", "where should this live", "refactor the structure", "reduce coupling".
 ---
 
@@ -32,11 +32,11 @@ Surface the **deepening opportunities** as candidates — for each: the problem 
 
 ## Phase 3 — Grill the chosen design
 
-Once the user picks a candidate, design the interface *with* them — and grill it (this is [[grill-plans]] pointed at a design): what are the real constraints? What will the seam need to support a year from now? Update the glossary inline as new terms settle. If a candidate is *rejected* for a reason worth preserving — a trade-off the next person would otherwise re-open — record it as an ADR (and only then: hard to reverse, surprising, genuine trade-off).
+Once the user picks a candidate, design the interface *with* them — and grill it (this is [[grill]] pointed at a design): what are the real constraints? What will the seam need to support a year from now? Update the glossary inline as new terms settle. If a candidate is *rejected* for a reason worth preserving — a trade-off the next person would otherwise re-open — record it as an ADR (and only then: hard to reverse, surprising, genuine trade-off).
 
 ## Where this sits
 
-Architecture is planned, not bolted on. In [[planning]], deciding where depth and seams live comes *before* cutting tickets — because tickets that fight the architecture are the ones that collide when fanned out across agents. When [[diagnose]] can't find a regression seam, it hands the specifics here. And the [[tdd]] refactor step is where small deepenings actually land, one green test at a time.
+Architecture is planned, not bolted on. In [[plan]], deciding where depth and seams live comes *before* cutting tickets — because tickets that fight the architecture are the ones that collide when fanned out across agents. When [[diagnose]] can't find a regression seam, it hands the specifics here. And the [[test]] refactor step is where small deepenings actually land, one green test at a time.
 
 ## The short version
 
@@ -44,4 +44,4 @@ Hunt for shallow modules and missing seams via the deletion test — does removi
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `improve-codebase-architecture` (MIT, © 2026 Matt Pocock); the deep-vs-shallow-module framing traces to John Ousterhout, "A Philosophy of Software Design". Feeds [[planning]], receives hand-offs from [[diagnose]], and pairs with [[grill-plans]] and [[tdd]].*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `improve-codebase-architecture` (MIT, © 2026 Matt Pocock); the deep-vs-shallow-module framing traces to John Ousterhout, "A Philosophy of Software Design". Feeds [[plan]], receives hand-offs from [[diagnose]], and pairs with [[grill]] and [[test]].*

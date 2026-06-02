@@ -8,26 +8,26 @@ installable via `npx skills` (https://skills.sh).
 If you are an agent working in a project that has installed these skills, load
 and follow the relevant one:
 
-- **systematic-debugging** — before fixing any bug/test failure/weird behaviour.
+- **debug** — before fixing any bug/test failure/weird behaviour.
   Find the root cause first; don't guess or patch the symptom.
-- **root-cause-fixes** — when writing/reviewing any fix. Proper fix or escalate;
+- **fix** — when writing/reviewing any fix. Proper fix or escalate;
   no bandaids; "fixed" requires proof.
-- **high-signal-research** — when researching anything technical. Read primary
+- **research** — when researching anything technical. Read primary
   sources, run multiple searches, don't coast on training data or trust SEO slop.
 - **library-first-development** — before hand-rolling functionality. Prefer a
   maintained library, vetted properly, over reinventing it.
-- **planning** — before starting any non-trivial feature, change, or fix. Turn
+- **plan** — before starting any non-trivial feature, change, or fix. Turn
   it into implementation-complete tickets, each a single parallel-spawnable unit
   with acceptance criteria and declared dependencies. Orchestrates the four
   below and dispatches via Backlog.md + `pipe` when available.
-- **tdd** — when implementing any behaviour or fixing any bug. Failing test
+- **test** — when implementing any behaviour or fixing any bug. Failing test
   first, vertical tracer-bullet slices, behaviour through public interfaces,
   never refactor on red.
 - **diagnose** — for hard/intermittent bugs and perf regressions. Build a fast
   deterministic feedback loop first; hypothesise, instrument, regression-test.
-- **grill-plans** — before committing to a plan or design. Interrogate it one
+- **grill** — before committing to a plan or design. Interrogate it one
   question at a time against the actual code and the project glossary.
-- **improve-architecture** — when code is hard to change or test. Find shallow
+- **improve** — when code is hard to change or test. Find shallow
   modules and missing seams; propose deepening refactors.
 
 These encode a consistent stance: do the work properly the first time — root

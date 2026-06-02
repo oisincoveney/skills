@@ -1,5 +1,5 @@
 ---
-name: planning
+name: plan
 description: Use BEFORE starting any non-trivial feature, change, or fix — when turning a request, spec, or bug into a plan and a set of tickets. Produces implementation-complete tickets that are each a single, parallel-spawnable unit of work with explicit acceptance criteria and declared dependencies, ready to fan out across agents. Trigger on "plan this", "break this down", "how should we build X", "turn this into tickets", "make an epic", "scope this out".
 ---
 
@@ -18,15 +18,15 @@ Don't decompose first. Decomposition is step 5. Walk the work down to bedrock, *
 
 ### 2. Understand before you cut
 
-Read the spec *and the actual code* — not your memory of the code. Map the real dependency graph: what must exist before what. For any unfamiliar library, API, or version, run [[high-signal-research]] — a plan built on a hallucinated API signature is N tickets of rework. Name the unknowns explicitly; a named unknown is a research ticket, a buried one is a mid-implementation stall.
+Read the spec *and the actual code* — not your memory of the code. Map the real dependency graph: what must exist before what. For any unfamiliar library, API, or version, run [[research]] — a plan built on a hallucinated API signature is N tickets of rework. Name the unknowns explicitly; a named unknown is a research ticket, a buried one is a mid-implementation stall.
 
 ### 3. Grill the plan
 
-Before a single ticket exists, run [[grill-plans]] — interrogate the plan one question at a time against codebase reality and the project's own glossary. Vague terms, fuzzy boundaries, unstated assumptions, and contradictions with existing code surface here, cheaply, instead of inside a half-built worktree. A plan that hasn't been grilled is a guess wearing a checklist.
+Before a single ticket exists, run [[grill]] — interrogate the plan one question at a time against codebase reality and the project's own glossary. Vague terms, fuzzy boundaries, unstated assumptions, and contradictions with existing code surface here, cheaply, instead of inside a half-built worktree. A plan that hasn't been grilled is a guess wearing a checklist.
 
 ### 4. Make the architecture fit
 
-If the work introduces or strains module boundaries, run [[improve-architecture]] *before* decomposing. Decide where the depth and the seams live, then plan tickets that build that shape. Tickets that fight the architecture are the ones that collide when fanned out — two agents smearing shallow glue across the same files is a merge conflict you authored at planning time.
+If the work introduces or strains module boundaries, run [[improve]] *before* decomposing. Decide where the depth and the seams live, then plan tickets that build that shape. Tickets that fight the architecture are the ones that collide when fanned out — two agents smearing shallow glue across the same files is a merge conflict you authored at planning time.
 
 ### 5. Cut into atomic, parallel-spawnable tickets
 
@@ -74,11 +74,11 @@ This computes execution batches from your declared dependencies. Read it like a 
 
 ### 8. Implement with discipline
 
-Each ticket is built with [[tdd]] unless it's genuinely trivial (config, copy, a rename). Fixes land per [[root-cause-fixes]]; nothing is "done" without the evidence those skills demand.
+Each ticket is built with [[test]] unless it's genuinely trivial (config, copy, a rename). Fixes land per [[fix]]; nothing is "done" without the evidence those skills demand.
 
 ## When NOT to do all this
 
-A single-file change with obvious scope doesn't need an epic — just do it (with [[tdd]] if it's behavior). The machinery earns its keep when work is large, parallelizable, or unclear. Don't ceremony-wrap a one-liner.
+A single-file change with obvious scope doesn't need an epic — just do it (with [[test]] if it's behavior). The machinery earns its keep when work is large, parallelizable, or unclear. Don't ceremony-wrap a one-liner.
 
 ## Red flags
 
@@ -91,8 +91,8 @@ A single-file change with obvious scope doesn't need an epic — just do it (wit
 
 ## The short version
 
-Diagnose (if it's a bug) → understand the *real* code → [[grill-plans]] → fit the [[improve-architecture|architecture]] → cut into tickets that are each *one* parallel-spawnable, acceptance-complete, dependency-declared unit → record in backlog and prove parallelism with `backlog sequence list --plain` → dispatch with `pipe epic` → build each with [[tdd]]. The plan is done when the fleet could drain it without you.
+Diagnose (if it's a bug) → understand the *real* code → [[grill]] → fit the [[improve|architecture]] → cut into tickets that are each *one* parallel-spawnable, acceptance-complete, dependency-declared unit → record in backlog and prove parallelism with `backlog sequence list --plain` → dispatch with `pipe epic` → build each with [[test]]. The plan is done when the fleet could drain it without you.
 
 ---
 
-*Original work. Orchestrates [[diagnose]], [[grill-plans]], [[improve-architecture]], and [[tdd]] (adapted from [mattpocock/skills](https://github.com/mattpocock/skills), MIT) with [[high-signal-research]] and [[root-cause-fixes]]. Wires to [Backlog.md](https://backlog.md) and the local `oisin-pipeline` (`pipe`) when present, and degrades to a plain plan document when not.*
+*Original work. Orchestrates [[diagnose]], [[grill]], [[improve]], and [[test]] (adapted from [mattpocock/skills](https://github.com/mattpocock/skills), MIT) with [[research]] and [[fix]]. Wires to [Backlog.md](https://backlog.md) and the local `oisin-pipeline` (`pipe`) when present, and degrades to a plain plan document when not.*

@@ -1,6 +1,6 @@
 ---
-name: grill-plans
-description: Use to stress-test a plan, spec, or design BEFORE committing to it — a relentless one-question-at-a-time interview that checks it against the actual codebase and the project's own glossary. Surfaces vague terms, fuzzy boundaries, unstated assumptions, and contradictions with existing code while they're cheap to fix. Trigger on "grill this plan", "poke holes in this", "is this design sound", "stress-test the spec", and as the review step inside planning.
+name: grill
+description: Use to stress-test a plan, spec, or design BEFORE committing to it — a relentless one-question-at-a-time interview that checks it against the actual codebase and the project's own glossary. Surfaces vague terms, fuzzy boundaries, unstated assumptions, and contradictions with existing code while they're cheap to fix. Trigger on "grill this plan", "poke holes in this", "is this design sound", "stress-test the spec", and as the review step inside the plan workflow.
 ---
 
 # Grill the Plan
@@ -30,7 +30,7 @@ Record a decision as an **ADR only when all three hold**: it's hard to reverse, 
 
 ## When it's done
 
-The plan is grilled when you can't find a term that two people would read differently, a boundary that a scenario can break, or an assumption the code contradicts. Hand the hardened plan back to [[planning]] for decomposition — every ambiguity you killed here is a ticket that won't stall mid-implementation.
+The plan is grilled when you can't find a term that two people would read differently, a boundary that a scenario can break, or an assumption the code contradicts. Hand the hardened plan back to [[plan]] for decomposition — every ambiguity you killed here is a ticket that won't stall mid-implementation.
 
 ## The short version
 
@@ -38,4 +38,4 @@ Interview the plan one question at a time, against the code and the glossary. Re
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `grill-with-docs` (MIT, © 2026 Matt Pocock). The interrogation step inside [[planning]]; pairs with [[improve-architecture]] (grilling a chosen design) and [[high-signal-research]] (when an answer needs a primary source, not a guess).*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `grill-with-docs` (MIT, © 2026 Matt Pocock). The interrogation step inside [[plan]]; pairs with [[improve]] (grilling a chosen design) and [[research]] (when an answer needs a primary source, not a guess).*
