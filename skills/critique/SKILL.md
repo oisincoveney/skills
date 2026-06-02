@@ -215,6 +215,15 @@ After any refactoring or implementation change, check for orphaned code:
 Don't leave dead code lying around — it confuses future readers and agents. But don't silently delete things you're not sure about. When in doubt, ask.
 
 ```
+
+## Specialized review lenses
+
+Use these lenses inside the same review, not as separate top-level skills:
+
+- **UI and accessibility:** check semantics, keyboard access, focus states, readable labels, responsive layout, loading/error states, and whether text or controls overlap at realistic viewport sizes.
+- **Strict maintainability:** look for giant files, spaghetti branching, shallow wrappers, unclear ownership, dead compatibility shims, and abstractions that do not earn their complexity.
+- **Requesting review:** package the diff with a short description, requirements/plan, base/head SHAs, verification run, and known risks. Do not hand the reviewer your whole session history.
+- **Receiving review:** verify each finding against the code before implementing it. Fix valid Critical and Important issues; push back with evidence when a comment is technically wrong.
 DEAD CODE IDENTIFIED:
 - formatLegacyDate() in src/utils/date.ts — replaced by formatDate()
 - OldTaskCard component in src/components/ — replaced by TaskCard
@@ -314,8 +323,6 @@ Part of code review is dependency review:
 
 - For detailed security review guidance, use [[secure]].
 - For performance review checks, use [[optimize]].
-- For strict maintainability review, use [[thermo-nuclear-code-quality-review]].
-- For UI review, use [[web-design-guidelines]].
 - Before claiming the change is ready, use [[verify]].
 
 ## Common Rationalizations

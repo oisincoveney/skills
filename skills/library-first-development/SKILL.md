@@ -60,10 +60,12 @@ Build it yourself only when one of these is true — and write the reason in a c
 
 "I'd rather just write it" is not a reason. "I evaluated `x`, `y`, `z`; `x` is abandoned, `y` pulls 40 transitive deps for a 10-line need, `z`'s license is GPL and we ship proprietary — so a 12-line inline implementation is the right trade-off" *is* a reason.
 
-## Note
+## Supply-chain hardening
 
-This is about *choosing* to use a library well. For deep supply-chain hardening (lockfiles, provenance/attestation, dependency-confusion, CI auditing), hand off to [[supply-chain-risk-auditor]].
+This skill chooses dependencies; it also has to spot when a dependency deserves a deeper risk pass. Slow down when a package is single-maintainer, stale, very new, anonymous, low-adoption for its ecosystem, missing a security contact, has critical CVEs, runs install scripts, or touches high-risk surfaces like deserialization, native code, auth, crypto, or third-party code execution.
+
+For load-bearing dependencies, record the risk factors you checked and any safer alternatives. Prefer real registry/GitHub data over vibes: release recency, dependent repos/packages, maintainers, advisories, license, repository archival status, and security policy. If a risky dependency is still the right choice, say why.
 
 ---
 
-*Original skill for Oisín's skills repo. Vetting criteria (ecosyste.ms / OpenSSF Scorecard / risk thresholds / slopsquat checks) drawn from [andrew/managing-dependencies](https://github.com/andrew/managing-dependencies) by Andrew Nesbitt (CC0-1.0), with the default lean flipped from minimalist to library-first. Pairs with [[research]] and [[supply-chain-risk-auditor]].*
+*Original skill for Oisín's skills repo. Vetting criteria (ecosyste.ms / OpenSSF Scorecard / risk thresholds / slopsquat checks) drawn from [andrew/managing-dependencies](https://github.com/andrew/managing-dependencies) by Andrew Nesbitt (CC0-1.0), with the default lean flipped from minimalist to library-first and supply-chain risk guidance folded in from local oisin-pipeline material. Pairs with [[research]].*

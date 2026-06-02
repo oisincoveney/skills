@@ -312,9 +312,11 @@ git diff --cached | grep -i "password\|secret\|api_key\|token"
 - [ ] Dependencies audited for vulnerabilities
 - [ ] Error messages don't expose internals
 ```
-## See Also
+## Static analysis and dependency risk
 
-For dependency and supply-chain risk review, use [[supply-chain-risk-auditor]]. For static analysis, use [[semgrep]].
+For security-sensitive changes, use static analysis as a guardrail, not as a substitute for review. If Semgrep is available, present the target, rulesets, scan mode, and engine to the user before scanning; always pass `--metrics=off`; avoid `--config auto` when data leakage matters; and preserve SARIF/JSON output for review.
+
+Dependency risk is part of security. Slow down on dependencies that are stale, single-maintainer, missing a security policy, recently created, low-adoption, high-CVE, install-script-heavy, or sitting on high-risk surfaces such as crypto, auth, native code, deserialization, or third-party code execution. Record the risk and alternatives when the dependency is load-bearing.
 
 ## Common Rationalizations
 

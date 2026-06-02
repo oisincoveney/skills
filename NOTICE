@@ -57,38 +57,23 @@ skills/improve
   https://github.com/mattpocock/skills
   MIT License, Copyright (c) 2026 Matt Pocock.
 
-skills/secure
-skills/optimize
-skills/doubt
-skills/spec
-skills/migrate
-skills/critique
-skills/source-driven-development
-skills/incremental-implementation
-skills/documentation-and-adrs
-skills/verify
-skills/verification-before-completion
-skills/thermo-nuclear-code-quality-review
-skills/supply-chain-risk-auditor
-skills/requesting-code-review
-skills/receiving-code-review
-skills/context-engineering
-skills/dispatching-parallel-agents
-  Vendored and adapted from local oisin-pipeline skills under
-  /Users/oisin/dev/oisin-pipeline/.agents/skills. No additional third-party
-  license file was present in those copied skill directories.
+skills/secure, skills/optimize, skills/doubt, skills/spec, skills/migrate,
+skills/critique, skills/verify
+  Adapted from local oisin-pipeline skills under
+  /Users/oisin/dev/oisin-pipeline/.agents/skills. Supporting material from
+  longer-form local skills was folded into these first-class handles rather
+  than published as separate installable skills. No additional third-party
+  license file was present in those copied local skill directories.
 
-skills/web-design-guidelines
-  Vendored wrapper skill from local oisin-pipeline. It points agents to fetch
-  the current Vercel Labs Web Interface Guidelines at runtime rather than
-  vendoring the guideline content here.
+skills/critique
+  Includes review guidance adapted from local wrappers around Vercel Labs Web
+  Interface Guidelines. The guideline content itself is not vendored here.
   https://github.com/vercel-labs/web-interface-guidelines
 
-skills/semgrep
-  Vendored and adapted from local oisin-pipeline, including its local workflow,
-  reference, and SARIF merge-script files. The skill references Semgrep and
-  third-party Semgrep rulesets by URL for runtime use; those external rulesets
-  are not vendored into this repository.
+skills/secure
+  Includes static-analysis and dependency-risk guidance adapted from local
+  Semgrep and supply-chain audit skills. External Semgrep rulesets are not
+  vendored into this repository.
   https://semgrep.dev/
 ------------------------------------------------------------------------------
 

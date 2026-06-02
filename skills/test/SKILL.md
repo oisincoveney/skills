@@ -35,6 +35,8 @@ Go vertical. Each cycle teaches you what the next test should be.
 3. **Incremental loop.** For each remaining behaviour: one test → watch it fail → minimum code to pass. One at a time. Don't write code for a test you haven't written yet.
 4. **Refactor — but only on GREEN.** With the suite passing, remove duplication and deepen modules (push complexity behind simple interfaces — see [[improve]]). Run the tests after each step. **Never refactor while RED** — get to green first, then clean.
 
+For multi-file work, keep each increment as a thin vertical slice that leaves the system working: implement the smallest complete behaviour, run the relevant tests/build, verify it manually if needed, then move to the next slice. If you are about to write a large batch of code before running anything, stop and cut a smaller slice.
+
 ## Bug fixes: reproduce before you fix
 
 A bug fix *starts* with a failing test, not a fix. Write a test that reproduces the bug and watch it fail — that's your proof the bug is real and that you're aiming at the right thing. Then fix it and watch the test go green. This is the same red→green evidence [[fix]] demands, and it's how [[diagnose]] turns a minimised repro into a permanent regression guard. If there's no honest seam to write that test at, that absence is itself a finding — say so, don't fake a shallow test that passes for the wrong reason.
@@ -63,4 +65,4 @@ One behaviour at a time: red → green → refactor, vertically. Test through th
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `tdd` (MIT, © 2026 Matt Pocock). Pairs with [[scope]] (which behaviours to test), [[fix]] and [[diagnose]] (reproduction-test-first), [[verify]] (evidence before claims), and [[improve]] (the refactor step).*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `tdd` (MIT, © 2026 Matt Pocock), with incremental-implementation guidance folded in from local oisin-pipeline material. Pairs with [[scope]] (which behaviours to test), [[fix]] and [[diagnose]] (reproduction-test-first), [[verify]] (evidence before claims), and [[improve]] (the refactor step).*

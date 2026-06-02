@@ -8,12 +8,9 @@ Windsurf, Gemini, Cline, Goose, OpenCode, Zed, …) via `npx skills`.
 
 ## The skills
 
-Every directory under `skills/` is installable. The distinction below is
-surface area: **core handles** are the everyday verbs; **sub-skills** are
-descriptive skills that handles link to when the work needs more specific
-procedure.
-
-### Core handles
+Every directory under `skills/` is a first-class installable handle. Supporting
+material from longer-form skills has been folded into these handles rather than
+published as separate top-level skills.
 
 | Skill | What it forces |
 | ----- | -------------- |
@@ -34,30 +31,13 @@ procedure.
 | [`critique`](skills/critique/SKILL.md) | Run multi-axis review across correctness, readability, architecture, security, performance, and tests before merge. |
 | [`verify`](skills/verify/SKILL.md) | Require fresh evidence before claiming work is done, fixed, passing, ready, or safe to merge. |
 
-### Sub-skills
-
-| Skill | What it supports |
-| ----- | ---------------- |
-| [`source-driven-development`](skills/source-driven-development/SKILL.md) | Grounds framework-specific implementation in official docs and cited sources. |
-| [`incremental-implementation`](skills/incremental-implementation/SKILL.md) | Builds multi-file changes as working vertical slices with verification between slices. |
-| [`documentation-and-adrs`](skills/documentation-and-adrs/SKILL.md) | Records public APIs, architectural decisions, migration notes, and agent-facing context. |
-| [`verification-before-completion`](skills/verification-before-completion/SKILL.md) | Compatibility alias for the one-word `verify` handle. |
-| [`web-design-guidelines`](skills/web-design-guidelines/SKILL.md) | Reviews UI code against Vercel's Web Interface Guidelines. |
-| [`thermo-nuclear-code-quality-review`](skills/thermo-nuclear-code-quality-review/SKILL.md) | Performs a deliberately strict maintainability review for large files, shallow abstractions, and spaghetti branching. |
-| [`supply-chain-risk-auditor`](skills/supply-chain-risk-auditor/SKILL.md) | Audits dependency takeover and exploitation risk signals. |
-| [`semgrep`](skills/semgrep/SKILL.md) | Runs Semgrep static analysis with approved rulesets, metrics off, and merged SARIF output. |
-| [`requesting-code-review`](skills/requesting-code-review/SKILL.md) | Packages completed work for isolated code review with precise context. |
-| [`receiving-code-review`](skills/receiving-code-review/SKILL.md) | Handles review feedback with verification and technical pushback instead of performative agreement. |
-| [`context-engineering`](skills/context-engineering/SKILL.md) | Curates rules files, specs, relevant source, and transient context so agents work from the right information. |
-| [`dispatching-parallel-agents`](skills/dispatching-parallel-agents/SKILL.md) | Splits independent problem domains into parallel worker prompts without shared-state collisions. |
-
 They cross-reference each other: `trace` hands off to `fix`;
 `library-first-development` uses `research` to find and vet candidates;
 `scope` is the spine that runs `diagnose` → `grill` → `improve` → atomic
 tickets → `test` implementation; and review/security/performance work branches
-through `critique`, `secure`, `optimize`, `semgrep`, and the companion
-sub-skills. Backlog.md / pipeline integrations are used only when available and
-degrade to plain plan documents otherwise.
+through `critique`, `secure`, `optimize`, and `verify`. Backlog.md / pipeline
+integrations are used only when available and degrade to plain plan documents
+otherwise.
 
 ## Install
 

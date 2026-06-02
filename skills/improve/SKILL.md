@@ -30,6 +30,8 @@ For each friction point, apply the deletion test to decide whether the boundary 
 
 Surface the **deepening opportunities** as candidates — for each: the problem (the friction and where it bites), the proposed deeper shape (before → after, in the project's own terms), the benefit (what gets simpler, more testable, more local), and a recommendation strength. **Do not propose detailed interfaces yet** — the report exists so the user can *pick* what's worth pursuing. Designing all of them upfront is wasted work on the ones they'll reject.
 
+Use a strict maintainability lens when looking for candidates: giant files, repeated condition clusters, pass-through wrappers, hidden shared state, confusing compatibility shims, and branches that grow by accretion usually indicate a missing deeper module or misplaced seam.
+
 ## Phase 3 — Grill the chosen design
 
 Once the user picks a candidate, design the interface *with* them — and grill it (this is [[grill]] pointed at a design): what are the real constraints? What will the seam need to support a year from now? Update the glossary inline as new terms settle. If a candidate is *rejected* for a reason worth preserving — a trade-off the next person would otherwise re-open — record it as an ADR (and only then: hard to reverse, surprising, genuine trade-off).
@@ -44,4 +46,4 @@ Hunt for shallow modules and missing seams via the deletion test — does removi
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `improve-codebase-architecture` (MIT, © 2026 Matt Pocock); the deep-vs-shallow-module framing traces to John Ousterhout, "A Philosophy of Software Design". Feeds [[scope]], receives hand-offs from [[diagnose]], and pairs with [[grill]], [[test]], [[critique]], and [[thermo-nuclear-code-quality-review]].*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `improve-codebase-architecture` (MIT, © 2026 Matt Pocock); the deep-vs-shallow-module framing traces to John Ousterhout, "A Philosophy of Software Design", with strict maintainability-review guidance folded in from local oisin-pipeline material. Feeds [[scope]], receives hand-offs from [[diagnose]], and pairs with [[grill]], [[test]], and [[critique]].*

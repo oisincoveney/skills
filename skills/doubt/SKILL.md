@@ -223,7 +223,7 @@ If 3 cycles is "obviously insufficient" because the artifact is large: the artif
 ## Interaction with Other Skills
 
 - **`critique` / `/review`**: complementary. `/review` is post-hoc PR verdict; doubt-driven is in-flight per-decision. Use both.
-- **`source-driven-development`**: SDD verifies *facts about frameworks* against official docs. Doubt-driven verifies *your reasoning about the artifact*. SDD checks the API exists; doubt-driven checks you used it correctly under the contract.
+- **`research`**: source-driven research verifies *facts about frameworks* against official docs. Doubt-driven verifies *your reasoning about the artifact*. Research checks the API exists; doubt-driven checks you used it correctly under the contract.
 - **`test`**: TDD's RED step is doubt made concrete — a failing test is a disproof attempt. When TDD applies, that failing test *is* the doubt step for behavioral claims.
 - **`diagnose` / `trace`**: when the reviewer surfaces a real failure mode, drop into the debugging skills to localize and fix.
 - **Orchestration rules**: this skill runs from the main session. A nested reviewer calling another nested reviewer is the anti-pattern to avoid — see Loading Constraints above.

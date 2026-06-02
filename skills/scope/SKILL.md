@@ -22,6 +22,8 @@ Read the spec *and the actual code* — not your memory of the code. Map the rea
 
 Before you plan to *build* any non-trivial functionality — parsing, dates/timezones, auth, retries, HTTP, validation, state machines, queues, crypto, file formats — run [[library-first-development]] to decide build-vs-adopt at planning time. This is a planning-time decision, not an implementation-time one: "adopt library X" versus "hand-roll it" produces entirely different tickets, dependencies, and acceptance criteria. Discovering mid-fan-out that a ticket should have been a `npm install` is N agents of wasted work. Vet the candidate here, then either the chosen library is a stated dependency of the dependent tickets or its evaluation is its own earlier ticket.
 
+Set the context budget before decomposition. Identify the rules file, relevant spec section, source files, tests, type definitions, and known gotchas each future implementer needs. If a ticket requires context that is not written down, write it down or include it in the ticket; do not rely on session memory.
+
 ### 3. Grill the plan
 
 Before a single ticket exists, run [[grill]] — interrogate the plan one question at a time against codebase reality and the project's own glossary. Vague terms, fuzzy boundaries, unstated assumptions, and contradictions with existing code surface here, cheaply, instead of inside a half-built worktree. A plan that hasn't been grilled is a guess wearing a checklist.
@@ -47,6 +49,8 @@ If you can't write a ticket's acceptance criteria in a few bullets, it's too big
 **No placeholders.** A ticket containing "TBD", "TODO", "implement later", "add appropriate error handling", "write tests for this", or "similar to Task N" is not implementation-complete. Repeat the concrete detail even if it feels redundant; tickets may be read out of order.
 
 **Parallel safety check:** independent tickets can share a dependency, but they should not edit the same file in the same batch. If two same-batch tickets need the same file, split the shared contract or file setup into an earlier dependency.
+
+**Documentation and ADRs:** Add documentation tasks only when they preserve information future implementers need: public APIs, setup/run commands, migration steps, non-obvious constraints, or architectural decisions. Write an ADR when the decision is hard to reverse, surprising without context, and came from a real trade-off.
 
 ### 6. Record them where the fleet can drain them
 
@@ -104,4 +108,4 @@ Diagnose (if it's a bug) → understand the *real* code, deciding build-vs-adopt
 
 ---
 
-*Original work. Orchestrates [[diagnose]], [[grill]], [[improve]], and [[test]] (adapted from [mattpocock/skills](https://github.com/mattpocock/skills), MIT) with [[research]], [[library-first-development]], [[spec]], [[dispatching-parallel-agents]], [[context-engineering]], [[fix]], and [[verify]]. Wires to [Backlog.md](https://backlog.md) and the local `oisin-pipeline` (`pipe`) when present, and degrades to a plain plan document when not.*
+*Original work. Orchestrates [[diagnose]], [[grill]], [[improve]], and [[test]] (adapted from [mattpocock/skills](https://github.com/mattpocock/skills), MIT) with [[research]], [[library-first-development]], [[spec]], [[fix]], and [[verify]], with context, documentation, and parallel-dispatch guidance folded in from local oisin-pipeline material. Wires to [Backlog.md](https://backlog.md) and the local `oisin-pipeline` (`pipe`) when present, and degrades to a plain plan document when not.*

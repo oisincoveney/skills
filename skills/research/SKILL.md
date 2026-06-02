@@ -46,10 +46,14 @@ If a page fails the smell test, drop it and find a Tier A/B source instead. Don'
 - **Cite what you actually read** (the URL/source), not where you *think* the information lives.
 - If you couldn't verify something, label it **unverified** rather than stating it as fact. "I couldn't confirm this" is a valid, valued answer; a confident guess is not.
 
+## Source-driven implementation
+
+When research feeds framework-specific code, the implementation decision must trace to official documentation for the detected version. Read dependency files first (`package.json`, `pyproject.toml`, `go.mod`, etc.), fetch the relevant official docs or source, implement the documented pattern, and cite the source in the handoff. Do not use blog posts, examples from memory, or training data as primary authority for current APIs.
+
 ## When this feeds a build decision
 
 Choosing a library/tool from this research? Hand the candidates to [[library-first-development]] for the vetting step — adoption, maintenance, bus factor, license, security.
 
 ---
 
-*Original skill for Oisín's skills repo. Pairs with [[library-first-development]]; the same "verify, don't assume" discipline as [[fix]].*
+*Original skill for Oisín's skills repo, with source-driven implementation guidance folded in from local oisin-pipeline material. Pairs with [[library-first-development]]; the same "verify, don't assume" discipline as [[fix]].*
