@@ -1,0 +1,36 @@
+This repository contains original work plus skills adapted from third-party
+open-source projects. Attribution and upstream licenses below.
+
+------------------------------------------------------------------------------
+skills/systematic-debugging
+  Adapted from obra/superpowers — skills `systematic-debugging` and
+  `root-cause-tracing`.
+  https://github.com/obra/superpowers
+  MIT License, Copyright (c) 2025 Jesse Vincent.
+
+skills/root-cause-fixes
+  Anti-bandaid framing adapted from gridaco/grida — skill `etiology`
+  (the "acceptable bandaid" carve-out was deliberately removed).
+  https://github.com/gridaco/grida
+  Apache License 2.0, Copyright (c) Grida (gridaco) and contributors.
+
+  Verification gate adapted from obra/superpowers — skill
+  `verification-before-completion`.
+  https://github.com/obra/superpowers
+  MIT License, Copyright (c) 2025 Jesse Vincent.
+
+skills/library-first-development
+  Library-vetting criteria (ecosyste.ms / OpenSSF Scorecard / risk
+  thresholds / slopsquat checks) drawn from andrew/managing-dependencies
+  by Andrew Nesbitt. The default lean was flipped from dependency-minimalist
+  to library-first.
+  https://github.com/andrew/managing-dependencies
+  CC0-1.0 (public domain dedication; attribution is courtesy, not required).
+
+skills/high-signal-research
+  Original work.
+------------------------------------------------------------------------------
+
+Full upstream license texts:
+  - MIT: https://github.com/obra/superpowers/blob/main/LICENSE
+  - Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
