@@ -32,6 +32,7 @@ Skip any step and you have not verified.
 | Regression test works | Red-green evidence: it fails without the fix and passes with it | Test passes once |
 | Requirements met | Acceptance criteria checked one by one | Tests passing alone |
 | Review ready | Diff inspected, commands run, known gaps stated | "Looks good" |
+| Quality gate clean | [[quality-gate]] applied plus lint/type/static checks where available | Tests passing while casts/workarounds/smells remain |
 | Agent work complete | VCS diff and verification checked independently | Agent reports success |
 
 ## Red Flags
@@ -73,15 +74,17 @@ Then either fix the blocker, ask for the missing access/input, or report the rem
 
 1. Re-read the acceptance criteria.
 2. Check each criterion directly.
-3. Run the relevant test/build/lint commands.
-4. Report completed criteria and any gaps.
+3. Apply [[quality-gate]] to the diff.
+4. Run the relevant test/build/lint/static-analysis commands.
+5. Report completed criteria and any gaps.
 
 **Delegated work:**
 
 1. Read the worker's summary.
 2. Inspect the diff.
-3. Run the relevant verification yourself.
-4. Report your evidence, not the worker's confidence.
+3. Apply [[quality-gate]] to the diff, especially casts/assertions/workarounds/suppressions.
+4. Run the relevant verification yourself.
+5. Report your evidence, not the worker's confidence.
 
 ## Output Standard
 
@@ -99,8 +102,8 @@ Partially verified: unit tests passed, but I could not run Playwright because br
 
 ## The Bottom Line
 
-No shortcut turns confidence into evidence. Run the check, read the output, then state the result.
+No shortcut turns confidence into evidence. Run the check, read the output, apply the quality gate, then state the result.
 
 ---
 
-*Canonical verification handle. Adapted from local oisin-pipeline `verification-before-completion` and the verification gate in [[fix]]. Pairs with [[test]], [[fix]], [[scope]], and [[critique]].*
+*Canonical verification handle. Adapted from local oisin-pipeline `verification-before-completion` and the verification gate in [[fix]]. Pairs with [[test]], [[fix]], [[scope]], [[quality-gate]], and [[critique]].*

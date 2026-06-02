@@ -48,16 +48,17 @@ ASSUMPTIONS I'M MAKING:
 
 Don't silently fill in ambiguous requirements. The spec's entire purpose is to surface misunderstandings *before* code gets written — assumptions are the most dangerous form of misunderstanding.
 
-**Write a spec document covering these six core areas:**
+**Write a spec document covering these eight core areas:**
 
 1. **Objective** — What are we building and why? Who is the user? What does success look like?
 
-2. **Commands** — Full executable commands with flags, not just tool names.
+2. **Commands** — Full executable commands with flags, not just tool names. Include the project-local CLIs and generators that create mechanical files.
    ```
    Build: npm run build
    Test: npm test -- --coverage
    Lint: npm run lint --fix
    Dev: npm run dev
+   Generate migration: npx prisma migrate dev --name add_task_status --create-only
    ```
 
 3. **Project Structure** — Where source code lives, where tests go, where docs belong.
@@ -78,6 +79,10 @@ Don't silently fill in ambiguous requirements. The spec's entire purpose is to s
    - **Always do:** Run tests before commits, follow naming conventions, validate inputs
    - **Ask first:** Database schema changes, adding dependencies, changing CI config
    - **Never do:** Commit secrets, edit vendor directories, remove failing tests without approval
+
+7. **Library and CLI decisions** — For any non-trivial capability, name the existing library/framework feature to use or the candidate evaluation needed. For scaffolding/migrations/generated code, name the CLI/generator command, dry-run/create-only mode if available, and expected files. If the spec requires manual files where a generator normally exists, explain why.
+
+8. **Quality gate** — Name the smells that are explicitly out of bounds for this work: workarounds, unsafe casts/assertions, non-null assertions, broad fallbacks, giant conditional branches, duplicated condition clusters, disabled checks, shallow wrappers, and invalid states representable in types.
 
 **Spec template:**
 
@@ -110,6 +115,12 @@ Don't silently fill in ambiguous requirements. The spec's entire purpose is to s
 ## Success Criteria
 [How we'll know this is done — specific, testable conditions]
 
+## Library / CLI Decisions
+[Existing libraries/framework features to use. Generator/scaffold/migration/codegen commands with flags. Manual-code exceptions and rationale.]
+
+## Quality Gate
+[Code smells forbidden for this feature. Type/data-flow rules. Branching/complexity limits. Lint/static-analysis checks expected.]
+
 ## Open Questions
 [Anything unresolved that needs human input]
 ```
@@ -133,10 +144,12 @@ This lets you loop, retry, and problem-solve toward a clear goal rather than gue
 With the validated spec, generate a technical implementation plan:
 
 1. Identify the major components and their dependencies
-2. Determine the implementation order (what must be built first)
+2. Determine the implementation order (what must be generated/scaffolded first, then what must be built by hand)
 3. Note risks and mitigation strategies
 4. Identify what can be built in parallel vs. what must be sequential
 5. Define verification checkpoints between phases
+6. Run [[library-first-development]] for non-trivial capabilities and mechanical scaffolding before finalizing tasks
+7. Run [[quality-gate]] on the proposed design before tasking implementation
 
 The plan should be reviewable: the human should be able to read it and say "yes, that's the right approach" or "no, change X."
 
@@ -155,6 +168,8 @@ Break the plan into discrete, implementable tasks:
 - [ ] Task: [Description]
   - Acceptance: [What must be true when done]
   - Verify: [How to confirm — test command, build, manual check]
+  - Library/CLI: [Existing library or exact generator/scaffold command; or reason for manual code]
+  - Quality gate: [No casts/assertions/workarounds/giant branches/suppressions; smell risks to watch]
   - Files: [Which files will be touched]
 ```
 
@@ -184,6 +199,8 @@ The spec is a living document, not a one-time artifact:
 ## Red Flags
 
 - Starting to write code without any written requirements
+- Starting to write code or migrations without checking the project library/framework CLI first
+- Allowing casts, assertions, workarounds, giant branches, or disabled checks into the spec as implementation details
 - Asking "should I just start building?" before clarifying what "done" means
 - Implementing features not mentioned in any spec or task list
 - Making architectural decisions without documenting them
@@ -193,8 +210,10 @@ The spec is a living document, not a one-time artifact:
 
 Before proceeding to implementation, confirm:
 
-- [ ] The spec covers all six core areas
+- [ ] The spec covers all eight core areas
 - [ ] The human has reviewed and approved the spec
 - [ ] Success criteria are specific and testable
 - [ ] Boundaries (Always/Ask First/Never) are defined
+- [ ] Library/framework and CLI/generator decisions are explicit, including manual-code exceptions
+- [ ] [[quality-gate]] constraints are explicit
 - [ ] The spec is saved to a file in the repository

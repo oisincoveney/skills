@@ -18,9 +18,11 @@ Don't decompose first. Decomposition is step 5. Walk the work down to bedrock, *
 
 ### 2. Understand before you cut
 
-Read the spec *and the actual code* — not your memory of the code. Map the real dependency graph: what must exist before what. For any unfamiliar library, API, or version, run [[research]] — a plan built on a hallucinated API signature is N tickets of rework. Name the unknowns explicitly; a named unknown is a research ticket, a buried one is a mid-implementation stall.
+Read the spec *and the actual code* — not your memory of the code. Map the real dependency graph: what must exist before what. For any unfamiliar library, API, CLI, generator, or version, run [[research]] — a plan built on a hallucinated command or API signature is N tickets of rework. Name the unknowns explicitly; a named unknown is a research ticket, a buried one is a mid-implementation stall.
 
 Before you plan to *build* any non-trivial functionality — parsing, dates/timezones, auth, retries, HTTP, validation, state machines, queues, crypto, file formats — run [[library-first-development]] to decide build-vs-adopt at planning time. This is a planning-time decision, not an implementation-time one: "adopt library X" versus "hand-roll it" produces entirely different tickets, dependencies, and acceptance criteria. Discovering mid-fan-out that a ticket should have been a `npm install` is N agents of wasted work. Vet the candidate here, then either the chosen library is a stated dependency of the dependent tickets or its evaluation is its own earlier ticket.
+
+The same rule applies to mechanical scaffolding. Before planning tickets that create migrations, models, controllers, routes, SDK clients, generated types, config stubs, locks, snapshots, or framework boilerplate, ask: **what official or local CLI generates this?** If one exists, the plan should name the exact command, flags, dry-run/create-only mode if available, expected generated files, and follow-up edits. If no CLI fits, record the checked command/docs and the reason for manual files.
 
 Set the context budget before decomposition. Identify the rules file, relevant spec section, source files, tests, type definitions, and known gotchas each future implementer needs. If a ticket requires context that is not written down, write it down or include it in the ticket; do not rely on session memory.
 
@@ -32,15 +34,19 @@ Before a single ticket exists, run [[grill]] — interrogate the plan one questi
 
 If the work introduces or strains module boundaries, run [[improve]] *before* decomposing. Decide where the depth and the seams live, then plan tickets that build that shape. Tickets that fight the architecture are the ones that collide when fanned out — two agents smearing shallow glue across the same files is a merge conflict you authored at planning time.
 
+Run [[quality-gate]] on the planned shape before tickets exist. If the plan depends on unsafe casts, non-null assertions, giant conditional branches, manual fallbacks, duplicated condition clusters, or shallow wrappers, the plan is not ready; fix the data flow or architecture first.
+
 ### 5. Cut into atomic, parallel-spawnable tickets
 
-This is the constraint everything else serves. **Every ticket must be all five:**
+This is the constraint everything else serves. **Every ticket must be all seven:**
 
 - **One unit of work** — implementable, testable, and verifiable in a single focused agent session. An "and" in the title is two tickets. Two independent subsystems is two tickets.
 - **Independently spawnable** — an agent can take it with nothing but the ticket and the repo. No "ask Sarah", no "coordinate with the other branch". A shared contract (types, an API shape, a schema) is its *own earlier ticket* that the others depend on — define it once, then the dependents fan out without colliding.
 - **Acceptance-criteria-complete** — explicit, testable done-conditions. "Implement the feature" is not acceptance criteria; "`POST /tasks` returns 201 with the created task; empty title returns 422" is.
 - **Dependency-declared** — it names what it depends on, so the batch order is *computed*, not eyeballed.
 - **Implementation-complete** — it carries the slice of the design it owns: the interface it implements, the files it will touch, the test seam. The implementing agent should *execute* the plan, not re-derive it.
+- **Library/CLI-declared** — it names the library, framework feature, package script, or generator command to use; if manual code is required, it says why the maintained path does not fit.
+- **Quality-gate-clean** — it states the smell constraints for the slice: no workarounds, unsafe casts/assertions, massive branching, disabled checks, or shallow glue.
 
 If you can't write a ticket's acceptance criteria in a few bullets, it's too big — cut it down until you can.
 
@@ -101,11 +107,13 @@ A single-file change with obvious scope doesn't need an epic — just do it (wit
 - Tickets that say "implement the X" with no interface, no files, no seam — the agent will re-plan, badly.
 - Shared contracts discovered mid-fan-out instead of pulled into an earlier ticket.
 - A ticket that plans to hand-roll something a library already does — the build-vs-adopt call ([[library-first-development]]) wasn't made at planning time.
+- A migration/scaffold/codegen ticket with no CLI command, no dry-run/create-only strategy, and no reason for manual files.
+- A ticket whose plan relies on a cast, assertion, fallback, suppression, massive branch, or duplicated condition cluster to make progress.
 
 ## The short version
 
-Diagnose (if it's a bug) → understand the *real* code, deciding build-vs-adopt with [[library-first-development]] → [[grill]] → fit the [[improve|architecture]] → cut into tickets that are each *one* parallel-spawnable, acceptance-complete, dependency-declared unit → record in backlog and prove parallelism with `backlog sequence list --plain` → dispatch with `pipe epic` → build each with [[test]]. The plan is done when the fleet could drain it without you.
+Diagnose (if it's a bug) → understand the *real* code, deciding library-vs-hand-roll and CLI/generator-vs-manual with [[library-first-development]] → [[grill]] → fit the [[improve|architecture]] → run [[quality-gate]] on the planned shape → cut into tickets that are each *one* parallel-spawnable, acceptance-complete, dependency-declared unit → record in backlog and prove parallelism with `backlog sequence list --plain` → dispatch with `pipe epic` → build each with [[test]]. The plan is done when the fleet could drain it without you.
 
 ---
 
-*Original work. Orchestrates [[diagnose]], [[grill]], [[improve]], and [[test]] (adapted from [mattpocock/skills](https://github.com/mattpocock/skills), MIT) with [[research]], [[library-first-development]], [[spec]], [[fix]], and [[verify]], with context, documentation, and parallel-dispatch guidance folded in from local oisin-pipeline material. Wires to [Backlog.md](https://backlog.md) and the local `oisin-pipeline` (`pipe`) when present, and degrades to a plain plan document when not.*
+*Original work. Orchestrates [[diagnose]], [[grill]], [[improve]], and [[test]] (adapted from [mattpocock/skills](https://github.com/mattpocock/skills), MIT) with [[research]], [[library-first-development]], [[spec]], [[fix]], [[quality-gate]], and [[verify]], with context, documentation, and parallel-dispatch guidance folded in from local oisin-pipeline material. Wires to [Backlog.md](https://backlog.md) and the local `oisin-pipeline` (`pipe`) when present, and degrades to a plain plan document when not.*

@@ -1,8 +1,10 @@
 # skills
 
 Engineering-discipline skills for AI coding agents — the kind that stop an agent
-from shipping bandaids, coasting on training data, or hand-rolling what a library
-already does. Authored in the standard [Agent Skills](https://skills.sh) format,
+from shipping bandaids, coasting on training data, hand-rolling what a library
+already does, manually creating files a project CLI should scaffold, or
+accepting code smells like unsafe casts and massive branching.
+Authored in the standard [Agent Skills](https://skills.sh) format,
 installable across ~55 agent harnesses (Claude Code, Codex, Cursor, Copilot,
 Windsurf, Gemini, Cline, Goose, OpenCode, Zed, …) via `npx skills`.
 
@@ -17,9 +19,10 @@ published as separate top-level skills.
 | [`trace`](skills/trace/SKILL.md) | Find the real root cause before touching a fix — read the error, reproduce, trace the bad value back to its origin. No guessing. |
 | [`fix`](skills/fix/SKILL.md) | Proper root-cause fix, or stop and escalate. **No acceptable bandaid.** "Fixed" means reproduced-then-gone with green tests, not "should work". |
 | [`research`](skills/research/SKILL.md) | Multiple real searches over primary sources (docs, source code, high-vote SO, maintainer blogs). No one-search-then-training-data; no SEO slop. |
-| [`library-first-development`](skills/library-first-development/SKILL.md) | Prefer a popular, actively-maintained library over hand-rolling — then vet it properly (adoption, maintenance, bus factor, license, security). |
+| [`library-first-development`](skills/library-first-development/SKILL.md) | Prefer maintained libraries and official/local CLIs over hand-rolling or manual scaffolding — then vet dependencies and generated output properly. |
 | [`scope`](skills/scope/SKILL.md) | Turn a request, spec, or bug into implementation-complete tickets — each a single, **parallel-spawnable** unit with acceptance criteria and declared dependencies, ready to fan out across agents. Orchestrates the four below. |
-| [`execute`](skills/execute/SKILL.md) | Carry an approved ticket or implementation request through to verified code — read the real context, build in vertical TDD slices, preserve deep modules, review the diff, and report evidence. |
+| [`execute`](skills/execute/SKILL.md) | Carry an approved ticket or implementation request through to verified code — read the real context, prefer libraries/CLIs, build in vertical TDD slices, preserve deep modules, review the diff, and report evidence. |
+| [`quality-gate`](skills/quality-gate/SKILL.md) | Reject workarounds, unsafe casts/assertions, massive branching, disabled checks, shallow wrappers, dead code, duplicated logic, and other code smells before code is accepted. |
 | [`test`](skills/test/SKILL.md) | Red→green→refactor in vertical tracer-bullet slices — test behaviour through public interfaces, watch every test fail first, reproduce bugs before fixing. Never refactor on red. |
 | [`diagnose`](skills/diagnose/SKILL.md) | Hard bugs and perf regressions: build a fast deterministic feedback loop first, then 3–5 falsifiable hypotheses, instrument one variable at a time, regression-test at a correct seam. |
 | [`grill`](skills/grill/SKILL.md) | Interrogate a plan one question at a time against the actual code and the project glossary — kill vague terms, fuzzy boundaries, and code-contradicting assumptions before they become tickets. |
@@ -33,10 +36,11 @@ published as separate top-level skills.
 | [`verify`](skills/verify/SKILL.md) | Require fresh evidence before claiming work is done, fixed, passing, ready, or safe to merge. |
 
 They cross-reference each other: `trace` hands off to `fix`;
-`library-first-development` uses `research` to find and vet candidates;
+`library-first-development` uses `research` to find and vet candidates and
+forces official/local CLIs before manual scaffolding;
 `scope` is the spine that runs `diagnose` → `grill` → `improve` → atomic
 tickets; `execute` drains one approved slice through `test` implementation,
-review, and verification; and review/security/performance work branches
+`quality-gate`, review, and verification; and review/security/performance work branches
 through `critique`, `secure`, `optimize`, and `verify`. Backlog.md / pipeline
 integrations are used only when available and degrade to plain plan documents
 otherwise.

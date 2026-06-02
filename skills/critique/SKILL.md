@@ -7,7 +7,7 @@ description: Conducts multi-axis code review. Use before merging any change. Use
 
 ## Overview
 
-Multi-dimensional code review with quality gates. Every change gets reviewed before merge — no exceptions. Review covers five axes: correctness, readability, architecture, security, and performance.
+Multi-dimensional code review with quality gates. Every change gets reviewed before merge — no exceptions. Review covers correctness, readability, architecture, security, performance, and the [[quality-gate]] smell check.
 
 **The approval standard:** Approve a change when it definitely improves overall code health, even if it isn't perfect. Perfect code doesn't exist — the goal is continuous improvement. Don't block a change because it isn't exactly how you would have written it. If it improves the codebase and follows the project's conventions, approve it.
 
@@ -80,6 +80,16 @@ For detailed profiling and optimization, use [[optimize]]. Does the change intro
 - Any missing pagination on list endpoints?
 - Any large objects created in hot paths?
 
+### 6. Quality Gate
+
+For detailed smell guidance, use [[quality-gate]]. Does the change contain a design smell that should block merge?
+
+- Any workaround, bandaid, broad fallback, swallowed error, sleep/retry patch, or TODO/FIXME temporary code?
+- Any unsafe type assertion/cast, `as any`, `as unknown as T`, non-null assertion, raw `any`, unsafe `any` flow, lint/type suppression, or assertion that only silences tooling?
+- Any massive `if/else` ladder, repeated `switch`, nested branching, boolean parameter matrix, duplicated condition cluster, or mode flag explosion?
+- Any shallow wrapper, manager/helper dumping ground, leaked abstraction, message chain, hidden global, or shotgun-surgery pattern?
+- Any long method/file/class, long parameter list, primitive obsession, data clump, speculative abstraction, dead code, or over-mocked test?
+
 ## Change Sizing
 
 Small, focused changes are easier to review, faster to merge, and safer to deploy. Target these sizes:
@@ -141,7 +151,7 @@ Tests reveal intent and coverage:
 
 ### Step 3: Review the Implementation
 
-Walk through the code with the five axes in mind:
+Walk through the code with all review axes in mind:
 
 ```
 For each file changed:
@@ -150,6 +160,7 @@ For each file changed:
 3. Architecture: Does this fit the system?
 4. Security: Any vulnerabilities?
 5. Performance: Any bottlenecks?
+6. Quality gate: Any bandaid, unsafe cast/assertion, massive branch, or smell?
 ```
 
 ### Step 4: Categorize Findings
@@ -222,6 +233,7 @@ Use these lenses inside the same review, not as separate top-level skills:
 
 - **UI and accessibility:** check semantics, keyboard access, focus states, readable labels, responsive layout, loading/error states, and whether text or controls overlap at realistic viewport sizes.
 - **Strict maintainability:** look for giant files, spaghetti branching, shallow wrappers, unclear ownership, dead compatibility shims, and abstractions that do not earn their complexity.
+- **Quality gate:** load [[quality-gate]] and block workarounds, unsafe casts/assertions, type-system escapes, massive branching, duplicated condition clusters, shallow wrappers, dead code, and disabled checks.
 - **Requesting review:** package the diff with a short description, requirements/plan, base/head SHAs, verification run, and known risks. Do not hand the reviewer your whole session history.
 - **Receiving review:** verify each finding against the code before implementing it. Fix valid Critical and Important issues; push back with evidence when a comment is technically wrong.
 DEAD CODE IDENTIFIED:
@@ -323,6 +335,7 @@ Part of code review is dependency review:
 
 - For detailed security review guidance, use [[secure]].
 - For performance review checks, use [[optimize]].
+- For code smells and no-bandaid/no-cast/no-assertion review, use [[quality-gate]].
 - Before claiming the change is ready, use [[verify]].
 
 ## Common Rationalizations
@@ -345,6 +358,7 @@ Part of code review is dependency review:
 - No regression tests with bug fix PRs
 - Review comments without severity labels — makes it unclear what's required vs optional
 - Accepting "I'll fix it later" — it never happens
+- Accepting casts/assertions/workarounds/giant branches because tests happen to pass
 
 ## Verification
 
@@ -352,6 +366,7 @@ After review is complete:
 
 - [ ] All Critical issues are resolved
 - [ ] All Important issues are resolved or explicitly deferred with justification
+- [ ] [[quality-gate]] was applied and no blocking smells remain
 - [ ] Tests pass
 - [ ] Build succeeds
 - [ ] The verification story is documented (what changed, how it was verified)

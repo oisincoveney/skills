@@ -42,6 +42,12 @@ skills/execute
   https://github.com/mattpocock/skills
   MIT License, Copyright (c) 2026 Matt Pocock.
 
+skills/quality-gate
+  Original skill. Code-smell taxonomy informed by Fowler/Beck-derived catalogs
+  and Refactoring.Guru; complexity and type-safety guidance informed by ESLint,
+  Sonar Cognitive Complexity, TypeScript, typescript-eslint, and the Google
+  TypeScript Style Guide.
+
 skills/test
   Adapted from mattpocock/skills — skill `tdd`.
   https://github.com/mattpocock/skills

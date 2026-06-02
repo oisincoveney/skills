@@ -72,9 +72,12 @@ Don't deprecate without a working alternative. The replacement must:
 
 - Cover all critical use cases of the old system
 - Have documentation and migration guides
+- Prefer automated migration tooling, official CLIs, codemods, or repo-local scripts over manual consumer edits
 - Be proven in production (not just "theoretically better")
 
 ### Step 2: Announce and Document
+
+Before writing migration instructions or custom scripts, check for existing tooling: official upgrade CLIs, codemods, framework generators, package-manager commands, or repo-local scripts. If a mechanical migration is possible, make that the primary path and document the exact command plus verification step. Manual instructions are the fallback, not the default.
 
 ```markdown
 ## Deprecation Notice: OldService
@@ -188,6 +191,7 @@ Zombie code is code that nobody owns but everybody depends on. It's not actively
 
 - Deprecated systems with no replacement available
 - Deprecation announcements with no migration tooling or documentation
+- Manual migration steps where an official CLI, codemod, or local script could do the mechanical work
 - "Soft" deprecation that's been advisory for years with no progress
 - Zombie code with no owner and active consumers
 - New features added to a deprecated system (invest in the replacement instead)
@@ -200,6 +204,7 @@ After completing a deprecation:
 
 - [ ] Replacement is production-proven and covers all critical use cases
 - [ ] Migration guide exists with concrete steps and examples
+- [ ] Existing CLIs/codemods/scripts were checked; automated tooling is used where available or the manual fallback is justified
 - [ ] All active consumers have been migrated (verified by metrics/logs)
 - [ ] Old code, tests, documentation, and configuration are fully removed
 - [ ] No references to the deprecated system remain in the codebase

@@ -18,6 +18,8 @@ Two outcomes are allowed, and only two:
 
 What you must never do: silently apply a patch/workaround and present it as done. "Technically the problem goes away" is not the bar. Errors only grow — a bandaid leaks into the surrounding code, and the next person inherits both the original defect and the workaround obscuring it.
 
+Also forbidden: making the compiler, linter, or test suite shut up without fixing the data flow. Unsafe casts, type assertions, non-null assertions, broad fallbacks, sleeps, retries, swallowed errors, disabled checks, and giant branches are workarounds unless they remove the actual cause. Use [[quality-gate]] when reviewing the proposed fix.
+
 ## Before you write the fix: walk the ladder
 
 You should already know the root cause (via [[trace]]). Confirm where the fix belongs:
@@ -55,4 +57,4 @@ No "should work", "probably fixed", "that ought to do it". If you haven't run it
 
 ---
 
-*Anti-bandaid framing adapted from [gridaco/grida](https://github.com/gridaco/grida) `etiology` (Apache-2.0), with its "acceptable bandaid" carve-out deliberately removed; verification gate adapted from [obra/superpowers](https://github.com/obra/superpowers) `verification-before-completion` (MIT). Pairs with [[trace]], [[verify]], and [[secure]] for CVE/security remediation.*
+*Anti-bandaid framing adapted from [gridaco/grida](https://github.com/gridaco/grida) `etiology` (Apache-2.0), with its "acceptable bandaid" carve-out deliberately removed; verification gate adapted from [obra/superpowers](https://github.com/obra/superpowers) `verification-before-completion` (MIT). Pairs with [[trace]], [[quality-gate]], [[verify]], and [[secure]] for CVE/security remediation.*
