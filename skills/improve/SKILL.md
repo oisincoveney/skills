@@ -36,7 +36,7 @@ Once the user picks a candidate, design the interface *with* them — and grill 
 
 ## Where this sits
 
-Architecture is planned, not bolted on. In [[plan]], deciding where depth and seams live comes *before* cutting tickets — because tickets that fight the architecture are the ones that collide when fanned out across agents. When [[diagnose]] can't find a regression seam, it hands the specifics here. And the [[test]] refactor step is where small deepenings actually land, one green test at a time.
+Architecture is planned, not bolted on. In [[scope]], deciding where depth and seams live comes *before* cutting tickets — because tickets that fight the architecture are the ones that collide when fanned out across agents. When [[diagnose]] can't find a regression seam, it hands the specifics here. And the [[test]] refactor step is where small deepenings actually land, one green test at a time.
 
 ## The short version
 
@@ -44,4 +44,4 @@ Hunt for shallow modules and missing seams via the deletion test — does removi
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `improve-codebase-architecture` (MIT, © 2026 Matt Pocock); the deep-vs-shallow-module framing traces to John Ousterhout, "A Philosophy of Software Design". Feeds [[plan]], receives hand-offs from [[diagnose]], and pairs with [[grill]] and [[test]].*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `improve-codebase-architecture` (MIT, © 2026 Matt Pocock); the deep-vs-shallow-module framing traces to John Ousterhout, "A Philosophy of Software Design". Feeds [[scope]], receives hand-offs from [[diagnose]], and pairs with [[grill]] and [[test]].*

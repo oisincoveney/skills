@@ -5,7 +5,7 @@ description: Use for hard bugs and performance regressions — when the bug is i
 
 # Diagnose
 
-A discipline for the bugs that don't yield to a quick read. [[debug]] is the stance — don't guess, find the root cause, trace the bad value back to its origin. This skill is what you run when the *reproduce-it* step is itself the hard part: the bug is intermittent, environment-specific, or slow to surface. Skip a phase only when you can say out loud why.
+A discipline for the bugs that don't yield to a quick read. [[trace]] is the stance — don't guess, find the root cause, trace the bad value back to its origin. This skill is what you run when the *reproduce-it* step is itself the hard part: the bug is intermittent, environment-specific, or slow to surface. Skip a phase only when you can say out loud why.
 
 ## Phase 1 — Build a feedback loop
 
@@ -61,4 +61,4 @@ Build a fast deterministic feedback loop — that's 90% of it. Reproduce the *re
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `diagnose` (MIT, © 2026 Matt Pocock). The heavyweight loop behind [[debug]]; fixes land via [[fix]], regression tests via [[test]], and unfixable-because-untestable findings escalate to [[improve]].*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `diagnose` (MIT, © 2026 Matt Pocock). The heavyweight loop behind [[trace]]; fixes land via [[fix]], regression tests via [[test]], and unfixable-because-untestable findings escalate to [[improve]].*

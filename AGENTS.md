@@ -8,7 +8,7 @@ installable via `npx skills` (https://skills.sh).
 If you are an agent working in a project that has installed these skills, load
 and follow the relevant one:
 
-- **debug** — before fixing any bug/test failure/weird behaviour.
+- **trace** — before fixing any bug/test failure/weird behaviour.
   Find the root cause first; don't guess or patch the symptom.
 - **fix** — when writing/reviewing any fix. Proper fix or escalate;
   no bandaids; "fixed" requires proof.
@@ -16,7 +16,7 @@ and follow the relevant one:
   sources, run multiple searches, don't coast on training data or trust SEO slop.
 - **library-first-development** — before hand-rolling functionality. Prefer a
   maintained library, vetted properly, over reinventing it.
-- **plan** — before starting any non-trivial feature, change, or fix. Turn
+- **scope** — before starting any non-trivial feature, change, or fix. Turn
   it into implementation-complete tickets, each a single parallel-spawnable unit
   with acceptance criteria and declared dependencies. Orchestrates the four
   below and dispatches via Backlog.md + `pipe` when available.

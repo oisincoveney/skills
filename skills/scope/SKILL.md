@@ -1,5 +1,5 @@
 ---
-name: plan
+name: scope
 description: Use BEFORE starting any non-trivial feature, change, or fix — when turning a request, spec, or bug into a plan and a set of tickets. Produces implementation-complete tickets that are each a single, parallel-spawnable unit of work with explicit acceptance criteria and declared dependencies, ready to fan out across agents. Trigger on "plan this", "break this down", "how should we build X", "turn this into tickets", "make an epic", "scope this out".
 ---
 

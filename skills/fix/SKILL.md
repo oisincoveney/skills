@@ -20,7 +20,7 @@ What you must never do: silently apply a patch/workaround and present it as done
 
 ## Before you write the fix: walk the ladder
 
-You should already know the root cause (via [[debug]]). Confirm where the fix belongs:
+You should already know the root cause (via [[trace]]). Confirm where the fix belongs:
 
 1. **Symptom.** State the user-visible fault precisely — the symptom, not your guess at the cause.
 2. **Proximate cause.** Which exact code is wrong — and is the defect at the line you'd patch, or upstream of it? The line that *fires* the error is rarely the line that *contains* it.
@@ -55,4 +55,4 @@ No "should work", "probably fixed", "that ought to do it". If you haven't run it
 
 ---
 
-*Anti-bandaid framing adapted from [gridaco/grida](https://github.com/gridaco/grida) `etiology` (Apache-2.0), with its "acceptable bandaid" carve-out deliberately removed; verification gate adapted from [obra/superpowers](https://github.com/obra/superpowers) `verification-before-completion` (MIT). Pairs with [[debug]].*
+*Anti-bandaid framing adapted from [gridaco/grida](https://github.com/gridaco/grida) `etiology` (Apache-2.0), with its "acceptable bandaid" carve-out deliberately removed; verification gate adapted from [obra/superpowers](https://github.com/obra/superpowers) `verification-before-completion` (MIT). Pairs with [[trace]].*
