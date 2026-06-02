@@ -55,4 +55,4 @@ No "should work", "probably fixed", "that ought to do it". If you haven't run it
 
 ---
 
-*Anti-bandaid framing adapted from [gridaco/grida](https://github.com/gridaco/grida) `etiology` (Apache-2.0), with its "acceptable bandaid" carve-out deliberately removed; verification gate adapted from [obra/superpowers](https://github.com/obra/superpowers) `verification-before-completion` (MIT). Pairs with [[trace]].*
+*Anti-bandaid framing adapted from [gridaco/grida](https://github.com/gridaco/grida) `etiology` (Apache-2.0), with its "acceptable bandaid" carve-out deliberately removed; verification gate adapted from [obra/superpowers](https://github.com/obra/superpowers) `verification-before-completion` (MIT). Pairs with [[trace]], [[verify]], and [[secure]] for CVE/security remediation.*

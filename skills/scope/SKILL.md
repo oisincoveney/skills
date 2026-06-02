@@ -20,6 +20,8 @@ Don't decompose first. Decomposition is step 5. Walk the work down to bedrock, *
 
 Read the spec *and the actual code* — not your memory of the code. Map the real dependency graph: what must exist before what. For any unfamiliar library, API, or version, run [[research]] — a plan built on a hallucinated API signature is N tickets of rework. Name the unknowns explicitly; a named unknown is a research ticket, a buried one is a mid-implementation stall.
 
+Before you plan to *build* any non-trivial functionality — parsing, dates/timezones, auth, retries, HTTP, validation, state machines, queues, crypto, file formats — run [[library-first-development]] to decide build-vs-adopt at planning time. This is a planning-time decision, not an implementation-time one: "adopt library X" versus "hand-roll it" produces entirely different tickets, dependencies, and acceptance criteria. Discovering mid-fan-out that a ticket should have been a `npm install` is N agents of wasted work. Vet the candidate here, then either the chosen library is a stated dependency of the dependent tickets or its evaluation is its own earlier ticket.
+
 ### 3. Grill the plan
 
 Before a single ticket exists, run [[grill]] — interrogate the plan one question at a time against codebase reality and the project's own glossary. Vague terms, fuzzy boundaries, unstated assumptions, and contradictions with existing code surface here, cheaply, instead of inside a half-built worktree. A plan that hasn't been grilled is a guess wearing a checklist.
@@ -39,6 +41,12 @@ This is the constraint everything else serves. **Every ticket must be all five:*
 - **Implementation-complete** — it carries the slice of the design it owns: the interface it implements, the files it will touch, the test seam. The implementing agent should *execute* the plan, not re-derive it.
 
 If you can't write a ticket's acceptance criteria in a few bullets, it's too big — cut it down until you can.
+
+**Sizing guide:** XS = one file / one function or config change; S = one or two files / one component or endpoint; M = three to five files / one vertical feature slice; L = five to eight files and should be reviewed skeptically; XL = eight or more files and must be split. Prefer S and M tickets for agent work.
+
+**No placeholders.** A ticket containing "TBD", "TODO", "implement later", "add appropriate error handling", "write tests for this", or "similar to Task N" is not implementation-complete. Repeat the concrete detail even if it feels redundant; tickets may be read out of order.
+
+**Parallel safety check:** independent tickets can share a dependency, but they should not edit the same file in the same batch. If two same-batch tickets need the same file, split the shared contract or file setup into an earlier dependency.
 
 ### 6. Record them where the fleet can drain them
 
@@ -74,7 +82,7 @@ This computes execution batches from your declared dependencies. Read it like a 
 
 ### 8. Implement with discipline
 
-Each ticket is built with [[test]] unless it's genuinely trivial (config, copy, a rename). Fixes land per [[fix]]; nothing is "done" without the evidence those skills demand.
+Each ticket is built with [[test]] unless it's genuinely trivial (config, copy, a rename). Fixes land per [[fix]]. Completion claims go through [[verify]]; nothing is "done" without fresh evidence.
 
 ## When NOT to do all this
 
@@ -88,11 +96,12 @@ A single-file change with obvious scope doesn't need an epic — just do it (wit
 - Two same-batch tickets editing the same file — a merge conflict scheduled in advance.
 - Tickets that say "implement the X" with no interface, no files, no seam — the agent will re-plan, badly.
 - Shared contracts discovered mid-fan-out instead of pulled into an earlier ticket.
+- A ticket that plans to hand-roll something a library already does — the build-vs-adopt call ([[library-first-development]]) wasn't made at planning time.
 
 ## The short version
 
-Diagnose (if it's a bug) → understand the *real* code → [[grill]] → fit the [[improve|architecture]] → cut into tickets that are each *one* parallel-spawnable, acceptance-complete, dependency-declared unit → record in backlog and prove parallelism with `backlog sequence list --plain` → dispatch with `pipe epic` → build each with [[test]]. The plan is done when the fleet could drain it without you.
+Diagnose (if it's a bug) → understand the *real* code, deciding build-vs-adopt with [[library-first-development]] → [[grill]] → fit the [[improve|architecture]] → cut into tickets that are each *one* parallel-spawnable, acceptance-complete, dependency-declared unit → record in backlog and prove parallelism with `backlog sequence list --plain` → dispatch with `pipe epic` → build each with [[test]]. The plan is done when the fleet could drain it without you.
 
 ---
 
-*Original work. Orchestrates [[diagnose]], [[grill]], [[improve]], and [[test]] (adapted from [mattpocock/skills](https://github.com/mattpocock/skills), MIT) with [[research]] and [[fix]]. Wires to [Backlog.md](https://backlog.md) and the local `oisin-pipeline` (`pipe`) when present, and degrades to a plain plan document when not.*
+*Original work. Orchestrates [[diagnose]], [[grill]], [[improve]], and [[test]] (adapted from [mattpocock/skills](https://github.com/mattpocock/skills), MIT) with [[research]], [[library-first-development]], [[spec]], [[dispatching-parallel-agents]], [[context-engineering]], [[fix]], and [[verify]]. Wires to [Backlog.md](https://backlog.md) and the local `oisin-pipeline` (`pipe`) when present, and degrades to a plain plan document when not.*

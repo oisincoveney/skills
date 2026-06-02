@@ -13,6 +13,10 @@ A good test exercises real code paths through the public interface and reads lik
 
 Assert on **state and outputs**, not interactions. Prefer **real implementations > fakes > stubs > mocks**, in that order — mock only at boundaries that are slow, non-deterministic, or have side effects you can't control (network, email, the clock). Over-mocking buys a suite that's green while production is on fire.
 
+## Readable tests beat clever tests
+
+Prefer DAMP tests over DRY tests: descriptive and meaningful phrases are better than a clever helper that hides the behaviour under test. Duplication in test setup is fine when it makes each test read as its own specification. Extract only when the helper's name makes the behaviour clearer, not merely shorter.
+
 ## The anti-pattern: horizontal slices
 
 **Do not write all the tests, then all the code.** Treating RED as "write every test" and GREEN as "write every implementation" produces tests for *imagined* behaviour — you commit to the shape of things before you understand them, and the tests end up insensitive to the changes that matter.
@@ -50,6 +54,8 @@ A bug fix *starts* with a failing test, not a fix. Write a test that reproduces 
 - Tests that break on rename/refactor though behaviour didn't change.
 - Mocking everything; asserting on call sequences instead of outcomes.
 - Writing ten tests before writing any code.
+- Writing the test after the fix and calling it proof.
+- Extracting test helpers until the behaviour is hidden.
 
 ## The short version
 
@@ -57,4 +63,4 @@ One behaviour at a time: red → green → refactor, vertically. Test through th
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `tdd` (MIT, © 2026 Matt Pocock). Pairs with [[scope]] (which behaviours to test), [[fix]] and [[diagnose]] (reproduction-test-first), and [[improve]] (the refactor step).*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `tdd` (MIT, © 2026 Matt Pocock). Pairs with [[scope]] (which behaviours to test), [[fix]] and [[diagnose]] (reproduction-test-first), [[verify]] (evidence before claims), and [[improve]] (the refactor step).*

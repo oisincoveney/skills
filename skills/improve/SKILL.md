@@ -44,4 +44,4 @@ Hunt for shallow modules and missing seams via the deletion test — does removi
 
 ---
 
-*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `improve-codebase-architecture` (MIT, © 2026 Matt Pocock); the deep-vs-shallow-module framing traces to John Ousterhout, "A Philosophy of Software Design". Feeds [[scope]], receives hand-offs from [[diagnose]], and pairs with [[grill]] and [[test]].*
+*Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `improve-codebase-architecture` (MIT, © 2026 Matt Pocock); the deep-vs-shallow-module framing traces to John Ousterhout, "A Philosophy of Software Design". Feeds [[scope]], receives hand-offs from [[diagnose]], and pairs with [[grill]], [[test]], [[critique]], and [[thermo-nuclear-code-quality-review]].*

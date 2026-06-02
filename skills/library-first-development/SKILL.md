@@ -62,8 +62,8 @@ Build it yourself only when one of these is true — and write the reason in a c
 
 ## Note
 
-This is about *choosing* to use a library well. For deep supply-chain hardening (lockfiles, provenance/attestation, dependency-confusion, CI auditing), that's a separate concern — see `andrew/managing-dependencies` if you need it.
+This is about *choosing* to use a library well. For deep supply-chain hardening (lockfiles, provenance/attestation, dependency-confusion, CI auditing), hand off to [[supply-chain-risk-auditor]].
 
 ---
 
-*Original skill for Oisín's skills repo. Vetting criteria (ecosyste.ms / OpenSSF Scorecard / risk thresholds / slopsquat checks) drawn from [andrew/managing-dependencies](https://github.com/andrew/managing-dependencies) by Andrew Nesbitt (CC0-1.0), with the default lean flipped from minimalist to library-first. Pairs with [[research]].*
+*Original skill for Oisín's skills repo. Vetting criteria (ecosyste.ms / OpenSSF Scorecard / risk thresholds / slopsquat checks) drawn from [andrew/managing-dependencies](https://github.com/andrew/managing-dependencies) by Andrew Nesbitt (CC0-1.0), with the default lean flipped from minimalist to library-first. Pairs with [[research]] and [[supply-chain-risk-auditor]].*
