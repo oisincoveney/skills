@@ -19,6 +19,7 @@ published as separate top-level skills.
 | [`research`](skills/research/SKILL.md) | Multiple real searches over primary sources (docs, source code, high-vote SO, maintainer blogs). No one-search-then-training-data; no SEO slop. |
 | [`library-first-development`](skills/library-first-development/SKILL.md) | Prefer a popular, actively-maintained library over hand-rolling — then vet it properly (adoption, maintenance, bus factor, license, security). |
 | [`scope`](skills/scope/SKILL.md) | Turn a request, spec, or bug into implementation-complete tickets — each a single, **parallel-spawnable** unit with acceptance criteria and declared dependencies, ready to fan out across agents. Orchestrates the four below. |
+| [`execute`](skills/execute/SKILL.md) | Carry an approved ticket or implementation request through to verified code — read the real context, build in vertical TDD slices, preserve deep modules, review the diff, and report evidence. |
 | [`test`](skills/test/SKILL.md) | Red→green→refactor in vertical tracer-bullet slices — test behaviour through public interfaces, watch every test fail first, reproduce bugs before fixing. Never refactor on red. |
 | [`diagnose`](skills/diagnose/SKILL.md) | Hard bugs and perf regressions: build a fast deterministic feedback loop first, then 3–5 falsifiable hypotheses, instrument one variable at a time, regression-test at a correct seam. |
 | [`grill`](skills/grill/SKILL.md) | Interrogate a plan one question at a time against the actual code and the project glossary — kill vague terms, fuzzy boundaries, and code-contradicting assumptions before they become tickets. |
@@ -34,7 +35,8 @@ published as separate top-level skills.
 They cross-reference each other: `trace` hands off to `fix`;
 `library-first-development` uses `research` to find and vet candidates;
 `scope` is the spine that runs `diagnose` → `grill` → `improve` → atomic
-tickets → `test` implementation; and review/security/performance work branches
+tickets; `execute` drains one approved slice through `test` implementation,
+review, and verification; and review/security/performance work branches
 through `critique`, `secure`, `optimize`, and `verify`. Backlog.md / pipeline
 integrations are used only when available and degrade to plain plan documents
 otherwise.
@@ -63,6 +65,7 @@ and [gridaco/grida](https://github.com/gridaco/grida) (Apache-2.0);
 `library-first-development` draws vetting criteria from
 [andrew/managing-dependencies](https://github.com/andrew/managing-dependencies)
 (CC0); `test`, `diagnose`, `grill`, and `improve` are adapted
-from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT). The
-newly vendored skills are adapted from local `oisin-pipeline` skills unless
+from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT), and
+`execute` is an original orchestration skill informed by that engineering
+set. The newly vendored skills are adapted from local `oisin-pipeline` skills unless
 noted in [`NOTICE`](NOTICE).

@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "skills": {
+    "critique": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/critique/SKILL.md",
+      "computedHash": "3755272837cbce9a29a36711d7652033ed42a22fda0b3a85e8f2bdb7f4c364da"
+    },
+    "diagnose": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/diagnose/SKILL.md",
+      "computedHash": "837512fb93ae6058b0e6ddf304073e70194f6a0e9b4dd80adf942376307770d7"
+    },
+    "doubt": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/doubt/SKILL.md",
+      "computedHash": "628d999f5fae9379ee4ed4b78d6212f8205e9912e99421c9cf86a7bf2b233b7f"
+    },
+    "fix": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/fix/SKILL.md",
+      "computedHash": "83a6a22c30f4f5a44fd113896ef458f2f80598cdbf28becd77da3e79d0cd7a82"
+    },
+    "grill": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/grill/SKILL.md",
+      "computedHash": "c828d5b63f363f2cd1624c0bb6c78f127166882590fe09b3964ba44ffeb89cff"
+    },
+    "improve": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/improve/SKILL.md",
+      "computedHash": "a512a121f008bb7deb60dc2bd2cfc4e421a21124ef7ee475bffe5715f46ac484"
+    },
+    "library-first-development": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/library-first-development/SKILL.md",
+      "computedHash": "50cc98e3fdd2d09bf388d8f087d820f18eae42c8891ed4269e5c8b9f75137f86"
+    },
+    "migrate": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/migrate/SKILL.md",
+      "computedHash": "ebde864cadf694f29aca7835eb90854dfb9d4ff67209ca83c6f7f301c38b2241"
+    },
+    "optimize": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/optimize/SKILL.md",
+      "computedHash": "2f8cc4d0af04583836d468cb770476eb3154233ed39dbca0bf129a8e26b6b8e2"
+    },
+    "research": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/SKILL.md",
+      "computedHash": "406c611f6bdcc92005bb1a21008ea8979726c4da9ff60e15b1a963374dd84451"
+    },
+    "scope": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/scope/SKILL.md",
+      "computedHash": "d163d418780e267c38c3116d530166360c410036b144b37f43bf57730e292b6c"
+    },
+    "secure": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/secure/SKILL.md",
+      "computedHash": "5569772ec2f539ee03357cd034960522afd2dc721900871b127aebada015f002"
+    },
+    "spec": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/spec/SKILL.md",
+      "computedHash": "f020b9b8293df2ed3e0a4bd787fc3661d7f97d79c5647ee88a3dcb97e2f41bb1"
+    },
+    "test": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/test/SKILL.md",
+      "computedHash": "37e5e473299fcd7cb150ac35c0e09088475dc759ef4f15bbeed80edecab922b6"
+    },
+    "trace": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/trace/SKILL.md",
+      "computedHash": "20b2660a5b1a3c77a7371abd9fe6c511d138afaf8695f2d471279d07414cb07d"
+    },
+    "verify": {
+      "source": "oisincoveney/skills",
+      "sourceType": "github",
+      "skillPath": "skills/verify/SKILL.md",
+      "computedHash": "385ecb8618c4661c7226cc322034c4252f55faaa8c1acfce28f5eb7e964a7355"
+    }
+  }
+}

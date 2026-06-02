@@ -35,6 +35,13 @@ skills/scope
   and fix; wires to Backlog.md (https://backlog.md) and the local
   oisin-pipeline (`pipe`) when available.
 
+skills/execute
+  Original orchestration skill. Composes local execution, TDD, architecture,
+  review, security, performance, research, and verification skills; the
+  vertical-slice and deep-module stance is informed by mattpocock/skills.
+  https://github.com/mattpocock/skills
+  MIT License, Copyright (c) 2026 Matt Pocock.
+
 skills/test
   Adapted from mattpocock/skills — skill `tdd`.
   https://github.com/mattpocock/skills
