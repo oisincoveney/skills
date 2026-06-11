@@ -73,3 +73,35 @@ from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT), and
 `execute` is an original orchestration skill informed by that engineering
 set. The newly vendored skills are adapted from local `oisin-pipeline` skills unless
 noted in [`NOTICE`](NOTICE).
+
+## Canonical Source Tree
+
+The canonical skill sources for this repository live only under `skills/<id>/SKILL.md`. Every directory under `skills/` must contain exactly one `SKILL.md` with OpenCode-compatible frontmatter:
+
+```yaml
+---
+name: skill-name
+description: Use when...
+---
+```
+
+Do not treat `.agents/skills`, `.opencode/skills`, `.claude/skills`, `.codex/skills`, or `skills-lock.json` as canonical source. Those paths are install output produced by `npx skills add` and may be stale if committed by mistake.
+
+Install all skills with:
+
+```sh
+npx --yes skills add oisincoveney/skills \
+  --agent opencode \
+  --agent codex \
+  --agent claude-code \
+  --skill '*' \
+  --yes \
+  --copy
+```
+
+
+Run the repository format audit before publishing changes:
+
+```sh
+node scripts/audit-skills.mjs
+```
