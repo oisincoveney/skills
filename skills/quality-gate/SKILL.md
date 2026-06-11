@@ -38,10 +38,11 @@ These are blocking unless the user explicitly accepts the named trade-off after 
 - **Massive branching:** long `if/else if` ladders, repeated `switch`/case logic, nested conditionals, mode flags that create many hidden behaviours, boolean parameter matrices, duplicated permission/status/type checks.
 - **Broken data flow:** invalid states representable in types, nullable values pushed deep into logic instead of handled at boundaries, primitive obsession for domain concepts, stringly typed enums/statuses, parallel arrays, data clumps, mutation shared across layers.
 - **Shallow architecture:** pass-through wrappers, middlemen, manager/helper/utils dumping grounds, feature envy, message chains, leaky abstractions, circular dependencies, hidden globals, shotgun surgery, divergent change.
-- **Bloat and duplication:** long methods, large classes/files, long parameter lists, repeated condition clusters, copy-pasted tests or logic, speculative generality, unused abstractions, dead code.
+- **Bloat and duplication:** long methods, large classes/files, long parameter lists, repeated condition clusters, copy-pasted tests or logic from any source (external or internal), speculative generality, unused abstractions, dead code.
 - **Error-handling smells:** swallowed errors, catch-all fallbacks, logs instead of recovery, exceptions used for normal control flow, missing cancellation/timeouts, partial writes without rollback/compensation.
 - **Test smells:** tests that assert implementation details, over-mocking, snapshots that bless accidental output, tests that require unsafe casts, skipped/flaky tests, coverage without behavioural value.
 - **Tooling bypasses:** manual migrations/scaffolds/codegen where an official CLI exists, generated files edited without understanding regeneration, disabled lint/type checks, ignored static-analysis findings without a concrete reason.
+- **Copied code:** any code copied from a web page, LLM output, Stack Overflow answer, another file in the project, or any other source without understanding every line, its edge cases, and its fit for the current context. Code must be written for the current module; internal duplication must be extracted into a shared module, not pasted.
 
 ## Proper Replacements
 
